@@ -1,7 +1,9 @@
+
+//on cur page go to form
 let form = document.querySelector('form');
 
 form.onsubmit = sendData;
-
+//define function with fetch
 function sendData(e){
 
     e.preventDefault();
@@ -14,11 +16,11 @@ function sendData(e){
             'Content-type': 'application/json'
         },
         body: JSON.stringify({
-            name: formData.get('name')
+            name: formData.get('title')
         }),
         method:"POST"    
     }
-    fetch('http://localhost:3001/formData', Params)
+    fetch('http://localhost:3001/api/posts', Params)
     .then(res => res.json())
     .then(data => {
         console.log(data);
